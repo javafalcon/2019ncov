@@ -5,7 +5,7 @@ Created on Sat Mar  7 11:04:15 2020
 
 @author: weizhong
 """
-from ncovdata import load_data_onehot
+from ncovdata import load_data_onehot, load_data
 import numpy as np
 import os
 from keras import callbacks
@@ -138,7 +138,7 @@ def writeMetrics(metricsFile, y_true, predicted_Probability, noteInfo=''):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch_size', default=100, type=int)
-    parser.add_argument('--epochs', default=30, type=int)
+    parser.add_argument('--epochs', default=15, type=int)
     parser.add_argument('--lam_recon', default=0.6, type=float)  # 1200 * 0.0005, paper uses sum of SE, here uses MSE
     parser.add_argument('--num_routing', default=5, type=int)  # num_routing should > 0
     parser.add_argument('--shift_fraction', default=0.1, type=float)
@@ -153,7 +153,8 @@ if __name__ == "__main__":
         os.makedirs(args.save_dir)
         
     # load data
-    (x_train, y_train), (x_test, y_test) = load_data_onehot()
+    #(x_train, y_train), (x_test, y_test) = load_data_onehot(randompair=True)
+    (x_train, y_train), (x_test, y_test) = load_data('TRA')
     x_train = x_train.reshape(-1, x_train.shape[1], x_train.shape[2], 1).astype('float32')
     x_test = x_test.reshape(-1, x_test.shape[1], x_test.shape[2], 1).astype('float32')
     
@@ -172,6 +173,6 @@ if __name__ == "__main__":
     y_pred, x_recon = model.predict([x_test, y_test], batch_size=100)
     K.clear_session()
     tf.reset_default_graph()
-    writeMetrics('result.txt', y_test, y_pred, 'Predicted Metrics:')
+    writeMetrics('result.txt', y_test, y_pred, 'samples rate 1:2 Predicted Metrics:')
  
         

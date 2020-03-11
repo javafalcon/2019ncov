@@ -1,0 +1,35 @@
+Predicted Metrics:
+8000	0
+2	7859
+ACC: 0.999874 
+F1: 0.999873 
+Recall: 0.999746 
+Pre: 1.000000 
+MCC: 0.999748 
+AUC: 1.000000
+在TRB上，negatative由negative_random_CDR3m_human_TRB和
+negative_random_pair_human_TRB两个负样本集构成。分别取正
+样本集和负样本集的80%为训练集，余下20%为测试集。测试集上
+预测性能如下：
+15584	416
+90	7771
+ACC: 0.978794 
+F1: 0.968470 
+Recall: 0.988551 
+Pre: 0.949188 
+MCC: 0.952951 
+AUC: 0.997686
+
+在TRA上，negatative由neg_random_CDR3m_human_TRB和
+neg_random_pair_human_TRB两个负样本集构成。分别取正
+样本集和负样本集的80%为训练集，余下20%为测试集。测试集上
+预测性能如下：
+11346	654
+323	5136
+ACC: 0.944040 
+F1: 0.913148 
+Recall: 0.940832 
+Pre: 0.887047 
+MCC: 0.872745 
+AUC: 0.974582
+ 

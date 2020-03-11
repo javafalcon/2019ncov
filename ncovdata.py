@@ -7,6 +7,8 @@ Created on Sat Mar  7 08:41:55 2020
 """
 import pandas
 import numpy as np
+from sklearn.utils import shuffle
+
 def read_seq_data(randompair=False):
     if randompair:
         negdata = pandas.read_csv('Datasets/negative_random_pair_human_TRB.csv')
@@ -41,11 +43,40 @@ def read_seq_data(randompair=False):
     
     np.savez( datafile, negseq=negseq, posseq=posseq)
 
-def load_seq_data(randompair=False):
+def read_TRAseq_data(randompair=False):
     if randompair:
-        data = np.load('seqdata_randompair.npz')
+        negdata = pandas.read_csv('Datasets/data_3_9/TRA/neg_random_pair_human_TRA.csv')
+        datafile = 'seqdata_randompair_TRA.npz'
     else:
-        data = np.load('seqdata.npz')
+        negdata = pandas.read_csv('Datasets/data_3_9/TRA/neg_random_CDR3m_human_TRA.csv')
+        datafile = 'seqdata_TRA.npz'
+    neg_CDR3 = negdata.CDR3
+    neg_Epitope = negdata.Epitope
+    negseq=[]
+    for i in range(len(neg_CDR3)):
+        negseq.append(  neg_CDR3[i] + neg_Epitope[i])
+    
+    posdata = pandas.read_csv('Datasets/data_3_9/TRA/pos_human_TRA.csv')
+    pos_CDR3 = posdata.CDR3
+    pos_Epitope = posdata.Epitope
+    
+    posseq=[]
+    for i in range(len(pos_CDR3)):
+        posseq.append( pos_CDR3[i] + pos_Epitope[i])
+    
+    np.savez( datafile, negseq=negseq, posseq=posseq)
+
+def load_seq_data(ptype='TRB', randompair=False):
+    if randompair:
+        if ptype == 'TRB':
+            data = np.load('seqdata_randompair.npz')
+        else:
+            data = np.load('seqdata_randompair_TRA.npz')
+    else:
+        if ptype == 'TRB':
+            data = np.load('seqdata.npz')
+        else:
+            data = np.load('seqdata_TRA.npz')
     return data
 
 def onehot(seq, row=60, col=20):
@@ -73,9 +104,8 @@ def splitTrainAndTest(x, y, test_size=0.2, random_state=None):
     
     return (x_train, y_train), (x_test, y_test)
     
-def load_data_onehot(randompair=False, row=60, col=20):
-    from sklearn.utils import shuffle
-    data = load_seq_data(randompair)
+def load_data_onehot(pytpe='TRB', randompair=False, row=60, col=20):
+    data = load_seq_data('TRA', randompair)
     
     x_pos = []
     for seq in data['posseq']:
@@ -105,6 +135,45 @@ def load_data_onehot(randompair=False, row=60, col=20):
     
     return( x_train, y_train), (x_test, y_test)
     
+def load_data(ptype='TRB'):
+    if ptype in ['TRB']:
+        data1 = np.load('seqdata_randompair.npz')
+        data2 = np.load('seqdata.npz')
+    else:
+        data1 = np.load('seqdata_randompair_TRA.npz')
+        data2 = np.load('seqdata_TRA.npz')
+        
+    negseq = np.concatenate((data1['negseq'], data2['negseq']))
+    
+    x_pos = []
+    for seq in data1['posseq']:
+        x_pos.append(onehot(seq))
+    y_pos = np.zeros(shape=(len(x_pos),2))
+    y_pos[:,0] = 1
+    x_pos = np.array(x_pos)
+    
+    x_neg = []
+    for seq in negseq:
+        x_neg.append( onehot(seq))
+         
+    y_neg = np.zeros( shape=(len(x_neg),2))
+    y_neg[:,1] = 1
+    x_neg = np.array( x_neg)
+    
+    (x_train_pos, y_train_pos), (x_test_pos, y_test_pos) = splitTrainAndTest(x_pos, y_pos)
+    (x_train_neg, y_train_neg), (x_test_neg, y_test_neg) = splitTrainAndTest(x_neg, y_neg)
+    
+    x_train = np.concatenate((x_train_pos, x_train_neg))
+    y_train = np.concatenate((y_train_pos, y_train_neg))
+    
+    x_test = np.concatenate((x_test_pos, x_test_neg))
+    y_test = np.concatenate((y_test_pos, y_test_neg))
+    
+    x_train, y_train = shuffle(x_train, y_train)
+    x_test, y_test = shuffle(x_test, y_test)
+    
+    return (x_train, y_train), (x_test, y_test)
+    
         
 if __name__ == "__main__":
     """
@@ -125,8 +194,10 @@ if __name__ == "__main__":
             minlen2 =len(d)
     print("In posdata, the max len is: {}, the min len is: {}".format( maxlen2, minlen2))
     """
-    (x_train, y_train), (x_test, y_test) = load_data_onehot()             
-    
+    #(x_train, y_train), (x_test, y_test) = load_data_onehot()     
+    read_TRAseq_data(randompair=True)
+    read_TRAseq_data(randompair=False)        
+    #load_data('TRA')
     
     
     
