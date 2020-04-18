@@ -32,4 +32,157 @@ Recall: 0.940832
 Pre: 0.887047 
 MCC: 0.872745 
 AUC: 0.974582
+ samples rate 1:2 Predicted Metrics:
+7486	330
+159	1882
+ACC: 0.950391 
+F1: 0.885022 
+Recall: 0.922097 
+Pre: 0.850814 
+MCC: 0.854582 
+AUC: 0.974196
+ samples rate 1:2 Predicted Metrics:
+11413	928
+551	4223
+ACC: 0.913585 
+F1: 0.850982 
+Recall: 0.884583 
+Pre: 0.819841 
+MCC: 0.791386 
+AUC: 0.946773
+ independent test result:
+0	0
+291	2307
+ACC: 0.887991 
+F1: 0.940673 
+Recall: 0.887991 
+Pre: 1.000000 
+MCC: 0.000000 independent test result:
+0	0
+291	2307
+ACC: 0.887991 
+F1: 0.940673 
+Recall: 0.887991 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Testing on Datasets/TetTCR-seq_testdata_TRB_containing_VDJDB.csv
+0	0
+1229	207
+ACC: 0.144150 
+F1: 0.251978 
+Recall: 0.144150 
+Pre: 1.000000 
+
+Testing on Datasets/testdata_TRB_hit_VDJDB.csv
+1150	53
+0	0
+ACC: 0.955943 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 Training on TRA, random sequences and random pairs negative
+7466	350
+142	1899
+ACC: 0.950086 
+F1: 0.885315 
+Recall: 0.930426 
+Pre: 0.844375 
+
+Testing on Datasets/TetTCR-seq_testdata_TRA_containing_VDJDB.csv
+0	0
+1242	98
+ACC: 0.073134 
+F1: 0.136300 
+Recall: 0.073134 
+Pre: 1.000000 
+Testing on Datasets/testdata_TRA_hit_VDJDB.csv
+1146	21
+0	0
+ACC: 0.982005 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 
+
+Training on TRB random sequeces negative
+7235	329
+94	4680
+ACC: 0.965716 
+F1: 0.956762 
+Recall: 0.980310 
+Pre: 0.934318 
+
+Testing on Datasets/TetTCR-seq_testdata_TRB_containing_VDJDB.csv
+0	0
+178	1258
+ACC: 0.876045 
+F1: 0.933927 
+Recall: 0.876045 
+Pre: 1.000000 
+
+Testing on Datasets/testdata_TRB_hit_VDJDB.csv
+164	1039
+0	0
+ACC: 0.136326 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 
+
+Training on TRB random sequences negative
+5587	187
+69	1972
+ACC: 0.967242 
+F1: 0.939048 
+Recall: 0.966193 
+Pre: 0.913386 
+
+Testing on Datasets/TetTCR-seq_testdata_TRA_containing_VDJDB.csv
+0	0
+859	481
+ACC: 0.358955 
+F1: 0.528281 
+Recall: 0.358955 
+Pre: 1.000000 
+
+Testing on Datasets/testdata_TRA_hit_VDJDB.csv
+813	354
+0	0
+ACC: 0.696658 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 
+
+Independ Testing in pos_testing.csv
+0	303
+0	1634
+ACC: 0.843573 
+F1: 0.915150 
+Recall: 1.000000 
+Pre: 0.843573 
+
+Independ testing in pos_testing.csv
+25	278
+145	1489
+ACC: 0.781621 
+F1: 0.875625 
+Recall: 0.911261 
+Pre: 0.842671 
+
+Independ testing in pos_testing.csv
+25	278
+145	1489
+ACC: 0.781621 
+F1: 0.875625 
+Recall: 0.911261 
+Pre: 0.842671 
+MCC: -0.008000 
+AUC: 0.405892
+ 
+
+Independ testing in pos_testing.csv
+0	303
+0	1634
+ACC: 0.843573 
+F1: 0.915150 
+Recall: 1.000000 
+Pre: 0.843573 
+MCC: 0.000000 
+AUC: 0.398775
  

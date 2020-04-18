@@ -11,44 +11,33 @@ from sklearn.utils import shuffle
 
 def read_seq_data(randompair=False):
     if randompair:
-        negdata = pandas.read_csv('Datasets/negative_random_pair_human_TRB.csv')
-        datafile = 'seqdata_randompair.npz'
+        negdata = pandas.read_csv(r'Datasets/cdhit_data/TRB/neg_random_pair_human_TRB.csv')
+        datafile = 'seqdata_randompair_TRB.npz'
     else:
-        negdata = pandas.read_csv('Datasets/negative_random_CDR3m_human_TRB.csv')
-        datafile = 'seqdata.npz'
-    neg_CDR3_s = negdata.CDR3_s
-    neg_CDR3_m = negdata.CDR3_m
-    neg_CDR3_e = negdata.CDR3_e
+        negdata = pandas.read_csv(r'Datasets/cdhit_data/TRB/neg_random_CDR3m_human_TRB.csv')
+        datafile = 'seqdata_TRB.npz'
+    neg_CDR3 = negdata.CDR3
     neg_Epitope = negdata.Epitope
-    
     negseq=[]
-    for i in range(len(neg_CDR3_s)):
-        s = "" if pandas.isnull( neg_CDR3_s[i]) else neg_CDR3_s[i]
-        m = "" if pandas.isnull( neg_CDR3_m[i]) else neg_CDR3_m[i]
-        e = "" if pandas.isnull( neg_CDR3_e[i]) else neg_CDR3_e[i]
-        negseq.append( s + m + e + neg_Epitope[i])
+    for i in range(len(neg_CDR3)):
+        negseq.append(  neg_CDR3[i] + neg_Epitope[i])
     
-    posdata = pandas.read_csv('Datasets/positive_human_TRB.csv')
-    pos_CDR3_s = posdata.CDR3_s
-    pos_CDR3_m = posdata.CDR3_m
-    pos_CDR3_e = posdata.CDR3_e
+    posdata = pandas.read_csv(r'Datasets/cdhit_data/TRB/pos_human_TRB.csv')
+    pos_CDR3 = posdata.CDR3
     pos_Epitope = posdata.Epitope
     
     posseq=[]
-    for i in range(len(pos_CDR3_s)):
-        s = "" if pandas.isnull( pos_CDR3_s[i]) else pos_CDR3_s[i]
-        m = "" if pandas.isnull( pos_CDR3_m[i]) else pos_CDR3_m[i]
-        e = "" if pandas.isnull( pos_CDR3_e[i]) else pos_CDR3_e[i]
-        posseq.append( s + m + e + pos_Epitope[i])
+    for i in range(len(pos_CDR3)):
+        posseq.append( pos_CDR3[i] + pos_Epitope[i])
     
     np.savez( datafile, negseq=negseq, posseq=posseq)
 
 def read_TRAseq_data(randompair=False):
     if randompair:
-        negdata = pandas.read_csv('Datasets/data_3_9/TRA/neg_random_pair_human_TRA.csv')
+        negdata = pandas.read_csv(r'Datasets/cdhit_data/TRA/neg_random_pair_human_TRA.csv')
         datafile = 'seqdata_randompair_TRA.npz'
     else:
-        negdata = pandas.read_csv('Datasets/data_3_9/TRA/neg_random_CDR3m_human_TRA.csv')
+        negdata = pandas.read_csv(r'Datasets/cdhit_data/TRA/neg_random_CDR3m_human_TRA.csv')
         datafile = 'seqdata_TRA.npz'
     neg_CDR3 = negdata.CDR3
     neg_Epitope = negdata.Epitope
@@ -56,7 +45,7 @@ def read_TRAseq_data(randompair=False):
     for i in range(len(neg_CDR3)):
         negseq.append(  neg_CDR3[i] + neg_Epitope[i])
     
-    posdata = pandas.read_csv('Datasets/data_3_9/TRA/pos_human_TRA.csv')
+    posdata = pandas.read_csv(r'Datasets/cdhit_data/TRA/pos_human_TRA.csv')
     pos_CDR3 = posdata.CDR3
     pos_Epitope = posdata.Epitope
     
@@ -88,8 +77,11 @@ def onehot(seq, row=60, col=20):
     x = np.zeros(shape=(row, col))
     n = len(seq) if len(seq)<=row else row
     for i in range(n):
-        k = amino_acids.index(seq[i])
-        x[i,k] = 1
+        try:
+            k = amino_acids.index(seq[i])
+            x[i,k] = 1
+        except:
+            continue
     return x
 
 def splitTrainAndTest(x, y, test_size=0.2, random_state=None):
@@ -135,18 +127,26 @@ def load_data_onehot(pytpe='TRB', randompair=False, row=60, col=20):
     
     return( x_train, y_train), (x_test, y_test)
     
-def load_data(ptype='TRB'):
+def load_data(ptype='TRB', stype=2):
     if ptype in ['TRB']:
-        data1 = np.load('seqdata_randompair.npz')
-        data2 = np.load('seqdata.npz')
+        data1 = np.load('seqdata_randompair_TRB.npz')
+        data2 = np.load('seqdata_TRB.npz')
     else:
         data1 = np.load('seqdata_randompair_TRA.npz')
         data2 = np.load('seqdata_TRA.npz')
         
-    negseq = np.concatenate((data1['negseq'], data2['negseq']))
+    if stype == 0:
+        negseq = data2['negseq']
+        posseq = data2['posseq']
+    elif stype == 1:
+        negseq = data1['negseq']
+        posseq = data1['posseq']
+    elif stype == 2:
+        negseq = np.concatenate((data1['negseq'], data2['negseq']))
+        posseq = data1['posseq']
     
     x_pos = []
-    for seq in data1['posseq']:
+    for seq in posseq:
         x_pos.append(onehot(seq))
     y_pos = np.zeros(shape=(len(x_pos),2))
     y_pos[:,0] = 1
@@ -174,7 +174,25 @@ def load_data(ptype='TRB'):
     
     return (x_train, y_train), (x_test, y_test)
     
-        
+def load_independ_test(csvfile, row=['CDR3', 'Peptide']):
+    data = pandas.read_csv(csvfile, encoding='gb18030')
+    d1 = data[row[0]] # CDR3
+    d2 = data[row[1]] # peptide
+    x = []
+    for (s1, s2) in zip(d1, d2):
+        x.append(onehot(s1+s2))
+    return np.array(x)   
+
+def load_data_withlabel(csvfile):
+    import keras
+    data = pandas.read_csv(csvfile, encoding='gb18030')
+    cdr3, pept = data['CDR3'], data['Epitope']      
+    y = data['label']
+    x = []
+    for i in range(len(cdr3)):
+        x.append( onehot( cdr3[i] + pept[i]))
+    y = keras.utils.to_categorical(y, num_classes=2)
+    return np.array(x), y
 if __name__ == "__main__":
     """
     data = load_seq_data()   
@@ -195,9 +213,9 @@ if __name__ == "__main__":
     print("In posdata, the max len is: {}, the min len is: {}".format( maxlen2, minlen2))
     """
     #(x_train, y_train), (x_test, y_test) = load_data_onehot()     
-    read_TRAseq_data(randompair=True)
-    read_TRAseq_data(randompair=False)        
+    #read_seq_data(randompair=True)
+    #read_seq_data(randompair=False)        
     #load_data('TRA')
-    
+    x,y = load_data_withlabel('Datasets/pos_training.csv')
     
     
