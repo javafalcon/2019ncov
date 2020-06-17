@@ -1,0 +1,49 @@
+
+
+By capsul net Training in TRB, Testing in testdata.....
+1411	0
+1411	0
+ACC: 0.500000 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 
+MCC: 0.000000 
+AUC: 0.464551
+ 
+
+By capsul net Tringing in TRB, Testing in nCoV-19...
+0	0
+381	0
+ACC: 0.000000 
+F1: 0.000000 
+Recall: 0.000000 
+Pre: 0.000000 
+MCC: 0.000000 
+
+By capsul net Training in TRB, Testing in testdata.....
+1354	57
+792	619
+ACC: 0.699150 
+F1: 0.593196 
+Recall: 0.438696 
+Pre: 0.915680 
+MCC: 0.466604 
+
+By capsul net Tringing in TRB, Testing in nCoV-19...
+0	0
+295	86
+ACC: 0.225722 
+F1: 0.368308 
+Recall: 0.225722 
+Pre: 1.000000 
+MCC: 0.000000 
+
+By capsul net Training in TRB, Testing in testdata.....
+906	505
+343	1068
+ACC: 0.699504 
+
+By capsul net Tringing in TRB, Testing in nCoV-19...
+0	0
+14	367
+ACC: 0.963255 
