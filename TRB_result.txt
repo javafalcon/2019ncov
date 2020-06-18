@@ -1,43 +1,3 @@
-
-
-By capsul net Training in TRB, Testing in testdata.....
-1411	0
-1411	0
-ACC: 0.500000 
-F1: 0.000000 
-Recall: 0.000000 
-Pre: 0.000000 
-MCC: 0.000000 
-AUC: 0.464551
- 
-
-By capsul net Tringing in TRB, Testing in nCoV-19...
-0	0
-381	0
-ACC: 0.000000 
-F1: 0.000000 
-Recall: 0.000000 
-Pre: 0.000000 
-MCC: 0.000000 
-
-By capsul net Training in TRB, Testing in testdata.....
-1354	57
-792	619
-ACC: 0.699150 
-F1: 0.593196 
-Recall: 0.438696 
-Pre: 0.915680 
-MCC: 0.466604 
-
-By capsul net Tringing in TRB, Testing in nCoV-19...
-0	0
-295	86
-ACC: 0.225722 
-F1: 0.368308 
-Recall: 0.225722 
-Pre: 1.000000 
-MCC: 0.000000 
-
 By capsul net Training in TRB, Testing in testdata.....
 906	505
 343	1068
@@ -47,3 +7,198 @@ By capsul net Tringing in TRB, Testing in nCoV-19...
 0	0
 14	367
 ACC: 0.963255 
+
+------------------
+using 11 amino acids from 2 to -2 in sequence of CDR3, features=9
+By resnet with attention Training in TRB, 
+Testing in testdata.....
+962	449
+164	1247
+ACC: 0.782778 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+28	353
+ACC: 0.926509 
+
+-------------------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....
+1047	364
+196	1215
+ACC: 0.801559 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+29	352
+ACC: 0.923885 
+
+--------------------------
+using 15 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....
+1089	322
+259	1152
+ACC: 0.794118 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+32	349
+ACC: 0.916010 
+
+-----------------------------
+using 15 amino acids of sequence of CDR3, features=9
+
+By resnet with attention Training in TRB, Testing in testdata.....
+1077	334
+232	1179
+ACC: 0.799433 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+39	342
+ACC: 0.897638 
+
+-------------------
+using 20 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....
+1085	326
+239	1172
+ACC: 0.799787 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+32	349
+ACC: 0.916010 
+
+------------------------
+using 20 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....
+1219	192
+403	1008
+ACC: 0.789157 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+70	311
+ACC: 0.816273 
+
+-----------------------
+using 20 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....
+1027	384
+164	1247
+ACC: 0.805811 
+
+By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+15	366
+ACC: 0.960630 
+
+using 9 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....
+1071	340
+262	1149
+ACC: 0.786676 
+
+using 9 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+48	333
+ACC: 0.874016 
+
+using 9 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....
+1143	268
+342	1069
+ACC: 0.783841 
+
+using 9 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+48	333
+ACC: 0.874016 
+
+using 9 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....
+1213	198
+412	999
+ACC: 0.783841 
+
+using 9 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+78	303
+ACC: 0.795276 
+
+using 12 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....
+1114	297
+277	1134
+ACC: 0.796598 
+
+using 12 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+76	305
+ACC: 0.800525 
+
+using 12 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....
+1114	297
+273	1138
+ACC: 0.798016 
+
+using 12 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+80	301
+ACC: 0.790026 
+
+using 12 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....
+1097	314
+247	1164
+ACC: 0.801205 
+
+using 12 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+34	347
+ACC: 0.910761 
+
+using 17 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....
+1057	354
+233	1178
+ACC: 0.791991 
+
+using 17 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+35	346
+ACC: 0.908136 
+
+using 17 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....
+1115	296
+266	1145
+ACC: 0.800850 
+
+using 17 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+33	348
+ACC: 0.913386 
+
+using 17 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....
+1213	198
+367	1044
+ACC: 0.799787 
+
+using 17 amino acids of sequence of CDR3, features=20
+By resnet with attention Training in TRB, Testing in testdata.....By resnet with attention Tringing in TRB, Testing in nCoV-19...
+0	0
+78	303
+ACC: 0.795276 
+

@@ -1,5 +1,7 @@
 log/
 Datasets/
 __pycache__
+save_models/
+.ipynb_checkpoints/
 *.npz
 
