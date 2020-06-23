@@ -1,0 +1,157 @@
+
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRA, the performance in training data.....
+1556	3366
+1466	3456
+ACC: 0.509143 
+F1: 0.588556 
+Recall: 0.702154 
+Pre: 0.506596 
+MCC: 0.019822 
+AUC: 0.501921
+ 
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRA, the performance in testing data.....
+398	807
+353	852
+ACC: 0.518672 
+F1: 0.594972 
+Recall: 0.707054 
+Pre: 0.513562 
+MCC: 0.040315 
+AUC: 0.515794
+ 
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=9
+By resnet with attention Training in TRA, the performance in Covn-2019 data.....
+104	188
+96	196
+ACC: 0.513699 
+F1: 0.579882 
+Recall: 0.671233 
+Pre: 0.510417 
+MCC: 0.028868 
+AUC: 0.457825
+ 
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in training data.....
+1944	2978
+1818	3104
+ACC: 0.512800 
+F1: 0.564158 
+Recall: 0.630638 
+Pre: 0.510358 
+MCC: 0.026341 
+AUC: 0.511751
+ 
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in testing data.....
+447	758
+450	755
+ACC: 0.498755 
+F1: 0.555556 
+Recall: 0.626556 
+Pre: 0.499009 
+MCC: -0.002575 
+AUC: 0.499249
+ 
+
+-----------------
+using 20 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in Covn-2019 data.....
+116	176
+148	144
+ACC: 0.445205 
+F1: 0.470588 
+Recall: 0.493151 
+Pre: 0.450000 
+MCC: -0.110096 
+AUC: 0.422500
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in training data.....
+71	4851
+75	4847
+ACC: 0.499594 
+F1: 0.663064 
+Recall: 0.984762 
+Pre: 0.499794 
+MCC: -0.003362 
+AUC: 0.513021
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in testing data.....
+13	1192
+17	1188
+ACC: 0.498340 
+F1: 0.662762 
+Recall: 0.985892 
+Pre: 0.499160 
+MCC: -0.014970 
+AUC: 0.524199
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in Covn-2019 data.....
+6	286
+6	286
+ACC: 0.500000 
+F1: 0.662037 
+Recall: 0.979452 
+Pre: 0.500000 
+MCC: 0.000000 
+AUC: 0.444818
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in training data.....
+4090	832
+1530	3392
+ACC: 0.760057 
+F1: 0.741745 
+Recall: 0.689151 
+Pre: 0.803030 
+MCC: 0.525424 
+AUC: 0.858555
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in testing data.....
+978	227
+394	811
+ACC: 0.742324 
+F1: 0.723139 
+Recall: 0.673029 
+Pre: 0.781310 
+MCC: 0.489370 
+AUC: 0.845266
+ 
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, the performance in Covn-2019 data.....
+251	41
+92	200
+ACC: 0.772260 
+F1: 0.750469 
+Recall: 0.684932 
+Pre: 0.829876 
+MCC: 0.553021 
+AUC: 0.845363
+ 

@@ -202,3 +202,17 @@ By resnet with attention Training in TRB, Testing in testdata.....By resnet with
 78	303
 ACC: 0.795276 
 
+
+
+-----------------
+using 15 amino acids of sequence of CDR3, features=15
+By resnet with attention Training in TRA, Testing in testdata.....
+880	325
+133	1072
+ACC: 0.809959 
+F1: 0.823982 
+Recall: 0.889627 
+Pre: 0.767359 
+MCC: 0.627939 
+AUC: 0.904044
+ 
